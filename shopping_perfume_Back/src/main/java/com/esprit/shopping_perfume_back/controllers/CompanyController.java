@@ -16,5 +16,5 @@ public class CompanyController {
 
     @RequestMapping("/comp")
     @GetMapping(name = "mohamed")
-    public List<Company> getCompanies(){return this.companyRepository.findAll();}
+    public List<Company> getCompanies(){return this.companyRepository.findAll();};
 }

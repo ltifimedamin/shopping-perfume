@@ -21,16 +21,15 @@ public class User {
     @Column(name = "lastName")
     private String lastName;
 
+
     @Column(name = "email")
     private String email ;
 
     @Column(name = "password")
     private String password ;
 
-    @Column(name = "telephone")
-    private String telephone;
+    @Column(name = "phone")
+    private Integer phone;
 
-    @Column(name = "address")
-    private String address;
 
 }
