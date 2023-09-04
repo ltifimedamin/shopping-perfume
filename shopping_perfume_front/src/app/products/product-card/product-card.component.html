@@ -1,15 +1,27 @@
-<section id="PC">
-    <div class="images">
-        <ul>
-            <li class="PC">
-               <div>
-                   <img src="src\assets\img\Armani(Acqua Di Giò).webp" alt="i['season\']">
-               </div>
-               <span>{{product["title"]}}</span>
-               <span class="prix">{{product["price"]}}</span>
-               <a href="#">ACHETER MAINTENANT</a>
-            </li>
-            </ul>
-          </div>
-          
-    </section>
+<mat-card class="example-card " >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{product["title"]}}</mat-card-title>
+      <mat-card-subtitle>Company</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="product.image" alt="Photo of a Shiba Inu" align="center">
+    <mat-card-content align="center">
+      
+      <h2 class="product-title">{{product["title"]}}:{{product["brand"]}}</h2>
+        <div class="product-text">
+        <p>Volume :{{product["volume"]}} mL</p>
+        <p>Prix :{{product["price"]}} DT</p>
+      
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions>
+      <section>
+
+        <div class="example-button-row" >
+          <button mat-flat-button color="primary">Ajouter au panier</button>
+       </div>
+      </section>
+    </mat-card-actions>
+  </mat-card>
+  

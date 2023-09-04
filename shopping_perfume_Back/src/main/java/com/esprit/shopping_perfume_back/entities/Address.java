@@ -23,9 +23,6 @@ public class Address {
     private String addressLine;
 
     @Column(name = "postalCode")
-    private String postalCode;
-
-    @Column(name = "phone")
-    private Integer phone;
+    private Integer postalCode;
 
 }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class User {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -30,6 +30,9 @@ public class User {
 
     @Column(name = "phone")
     private Integer phone;
+
+    @OneToOne
+    private Address address;
 
 
 }

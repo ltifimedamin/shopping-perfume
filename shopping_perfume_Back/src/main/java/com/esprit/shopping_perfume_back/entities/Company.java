@@ -14,6 +14,12 @@ public class Company {
         @Column(name = "id")
         private Integer id;
 
+        @Column(name = "name")
+        private String name;
+
+        @Column(name = "image")
+        private String image;
+
         @Column(name = "country")
         private String country;
 

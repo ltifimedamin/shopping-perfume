@@ -1,91 +1,64 @@
-#PC {
+.example-card {
+    max-width: 350px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-#PC li span.prix {
-    color: #ea1f33;
-    font-weight: bold;
+    
+  }
+  img{
+    width:280px;
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto; /* Pour centrer l'image horizontalement */
+  }
+  .product-title {
+    font-size: 14px;
+    color: #333;
     margin-bottom: 10px;
- }
- #PC li a {
-    background-color: #ea1f33;
-    color: #fff;
-    padding: 5px 20px;
-    font-size: 15px;
+  }
+  
+  /* Style du texte de la description */
+  .product-text {
+    font-size: px;
+    color: #666;
+    line-height: 1;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 1px;
+    min-width: 40px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 1200px;
+
+  }
+  
+.example-button-row .mat-mdc-button-base {
+  margin: 10px 43px;
+  font-size: 23px;
+  padding: 20px 43px;
 }
-.section_title {
-    text-transform: uppercase;
-    position: relative;
-    font-size: 25px;
-}
-.section_title:before {
-    position: absolute;
-    left: 10px;
-    bottom: 0;
-    content: "";
-    background-color: #ea1f33;
-    width: 100%;
-    height: 5px;
-    border-radius: 6px;
-}
-.section_title:after {
-    position: absolute;
-    top: 0;
-    left: -10px;
-    content: "";
-    background-color: #ea1f33;
-    width: 100%;
-    height: 5px;
-    border-radius: 6px;
-}
-.images {
-    margin: 100px auto;
-    padding: 0 8%;
-}
-.images ul {
+  
+  .example-flex-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    width: 100%;
-}
-.images li {
+  }
+  
+  .example-button-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2.665%;
-    transition: 0.5s;
-    height: 300px;
-    width: 28%;
-}
-
-.images li div {
-    width: 100%;
-    height: 60%;
-    margin-bottom: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-.images li div img {
-    height: 100%;
-    width: 100%;
-}
-
-.images li:hover {
-    transform: scale(1.1);
-    margin: 20px;
-}
-.images li span {
-    color: #000;
-    font-size: 18px;
-}
-#PC li span.prix {
-   color: #ea1f33;
-   font-weight: bold;
-   margin-bottom: 10px;
-}
-#PC li a {
-    background-color: #ea1f33;
-    color: #fff;
-    padding: 5px 20px;
-    font-size: 15px;
-}
+    justify-content: center auto;
+    width: 120px;
+  }
+  

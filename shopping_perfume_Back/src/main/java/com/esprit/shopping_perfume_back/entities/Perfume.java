@@ -13,21 +13,25 @@ public class Perfume {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "image")
+    private String image;
+
     @Column(name = "season")
     private String season;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "mark")
-    private String mark;
+    @Column(name = "brand")
+    private String brand;
 
     @Column(name = "Volume")
-    private String Volume;
+    private Integer Volume;
 
-    @Column(name = "sex")
-    private String sex ;
+    @Column(name = "category")
+    private String category ;
 
-    @Column(name="ingredient")
-    private String ingredient;
+    @Column(name="price")
+    private String price;
+
 }

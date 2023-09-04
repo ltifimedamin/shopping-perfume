@@ -1,0 +1,9 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    }
+    .parent {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
