@@ -1,12 +1,8 @@
 
-  
-  <div class="container-fluid">
-    <div class="row parent">
-  <div *ngFor="let i of perfumes" class="col-4 col-sm-4 col-md-4 col-lg4" >
-    <div class="col-md-4 product">
-      <app-product-card [product]="i"></app-product-card> 
-
-    </div>
+  <div class="container-fluid" style="padding: 100px;">
+    <div class="row">
+  <div *ngFor="let i of perfumes" class="col-4 col-sm-4 col-md-4 col-lg4">
+    <app-product-card [product]="i"></app-product-card> 
   </div>
 </div>
 </div>
