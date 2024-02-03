@@ -1,8 +1,12 @@
 package com.esprit.shopping_perfume_back.controllers;
 
+import com.esprit.shopping_perfume_back.Services.IServiceAddress;
+import com.esprit.shopping_perfume_back.Services.IServiceOrder;
+import com.esprit.shopping_perfume_back.entities.Address;
 import com.esprit.shopping_perfume_back.entities.OrderEntity;
 import com.esprit.shopping_perfume_back.entities.Perfume;
 import com.esprit.shopping_perfume_back.repositories.OrderRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,29 +14,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/orders")
 public class OrderController {
-    @Autowired
-    private OrderRepository orderRepository;
+    IServiceOrder iServiceOrder;
 
-
-    @GetMapping
-    public List<OrderEntity> getOrders() { return this.orderRepository.findAll();};
-
-    @PostMapping("/create")
-    public ResponseEntity<OrderEntity> createOrder(@RequestBody OrderEntity orderEntity) {
-        orderEntity= this.orderRepository .saveAndFlush(orderEntity);
-        return ResponseEntity.ok(orderEntity);
+    @GetMapping("/getOrders")
+    public List<OrderEntity> getOrders() {
+        List<OrderEntity> listBlocs = iServiceOrder.retrieveAllOrders();
+        return listBlocs;
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteOrderById(@PathVariable  Integer id) {
-        if (orderRepository.existsById(id)) {
-            orderRepository.deleteById(id);
-            return ResponseEntity.ok("order deleted successfully");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/retrieveOrder/{id}")
+    public OrderEntity retrieveOrder(@PathVariable("id") Integer id) {
+        return iServiceOrder.retrieveOrder(id);
     }
 
+    @PostMapping("/addOrder")
+    public OrderEntity addOrder(@RequestBody OrderEntity b) {
+        OrderEntity bloc = iServiceOrder.addOrder(b);
+        return bloc;
+    }
+
+    @DeleteMapping("/removeOrder/{id}")
+    public void removeOrder(@PathVariable("id") Integer id) {
+        iServiceOrder.removeOrder(id);
+    }
+
+    @PutMapping("/updateOrder")
+    public OrderEntity updateOrder(@RequestBody OrderEntity e) {
+        OrderEntity bloc= iServiceOrder.updateOrder(e);
+        return bloc;
+    }
 }

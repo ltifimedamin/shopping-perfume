@@ -1,8 +1,11 @@
 package com.esprit.shopping_perfume_back.controllers;
 
+import com.esprit.shopping_perfume_back.Services.IServiceCompany;
+import com.esprit.shopping_perfume_back.entities.Address;
 import com.esprit.shopping_perfume_back.entities.Company;
 import com.esprit.shopping_perfume_back.entities.Perfume;
 import com.esprit.shopping_perfume_back.repositories.CompanyRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,28 +16,33 @@ import java.util.List;
 @RequestMapping("/companies")
 @CrossOrigin("http://localhost:4200")
 public class CompanyController {
-    @Autowired
-    private CompanyRepository companyRepository;
 
-
-
-    @GetMapping
-    public List<Company> getCompanies(){return this.companyRepository.findAll();};
-
-
-    @PostMapping("/create")
-    public ResponseEntity<Company> createCompany(@RequestBody Company company) {
-        company= this.companyRepository .saveAndFlush(company);
-        return ResponseEntity.ok(company);
+    IServiceCompany iServiceCompany;
+    @GetMapping("/allCompany")
+    public List<Company> getCompany() {
+        List<Company> listBlocs = iServiceCompany.retrieveAllCompanies();
+        return listBlocs;
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteCompanyById(@PathVariable  Integer id) {
-        if (companyRepository.existsById(id)) {
-            companyRepository.deleteById(id);
-            return ResponseEntity.ok("company deleted successfully");
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/retrieveCompany/{id}")
+    public Company retrieveCompany(@PathVariable("id") Integer id) {
+        return iServiceCompany.retrieveCompany(id);
+    }
+
+    @PostMapping("/addCompany")
+    public Company addCompany(@RequestBody Company b) {
+        Company bloc = iServiceCompany.addCompany(b);
+        return bloc;
+    }
+
+    @DeleteMapping("/updateCompany/{id}")
+    public void updateCompany(@PathVariable("id") Integer id) {
+        iServiceCompany.removeCompany(id);
+    }
+
+    @PutMapping("/updateCompany")
+    public Company updateCompany(@RequestBody Company e) {
+        Company bloc= iServiceCompany.updateCompany(e);
+        return bloc;
     }
 }
